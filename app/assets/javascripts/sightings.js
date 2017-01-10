@@ -1,12 +1,12 @@
 $(document).ready(function() {
-  $("#add_new_sighting").on("click", function() {
+  $("#a_add_sighting").on("click", function() {
     var newSighting = {
-      "Sighting": {
-        "date": $("#sighting_date").val(),
-        "time": $("#sighting_time").val(),
-        "latitude": $("#sighting_latitude").val(),
-        "longitude": $("#sighting_longitude").val(),
-        "animal_id": $("#animal_id").val()
+      "sighting": {
+        "date": $("#start_date_day").val() + "-" + $("#start_date_month").val() + "-" + $("#start_date_year").val(),
+        "time": $("#start_time_hour").val() + ":" + $("#start_time_minute").val(),
+        "latitude": $("#a_add_lat").val(),
+        "longitude": $("#a_add_lng").val(),
+        "animal_id": $("#a_id").val()
       }
     };
 
@@ -16,9 +16,8 @@ $(document).ready(function() {
       method: 'POST',
       data: newSighting,
       success: function(data) {
-        //Do Something later
         alert("Success!");
-        $("#sighting_list").append("<tr><td>"+data.date+"</td><td>"+data.time+"</td><td>"+data.latitude+"</td><td>"+data.longitude+"</td><td>"+data.animal_id+"</td></tr>")
+        $("#sightings_list").append("<tr><td>"+data.date+"</td><td>"+data.time+"</td><td>"+data.latitude+"</td><td>"+data.longitude+"</td></tr>")
       },
       error: function(jqXHR, testStatus, errorThrown) {
         alert("Whatever you want and the error thrown " + errorThrown);
@@ -27,3 +26,5 @@ $(document).ready(function() {
 
   });
 });
+
+//"<tr><td>"+data.date+"</td><td>"+data.time+"</td><td>"+data.latitude+"</td><td>"+data.longitude+"</td><td>"+data.animal_id+"</td></tr>"

@@ -21,6 +21,10 @@
 <div>
   <%= select_date Date.today, prefix: :start_date %>
   <%= select_time Time.now, prefix: :start_time %>
+  <input id="a_add_lat" type="text" placeholder="Latitude" name="lat[l1]"/>
+  <input id="a_add_lng" type="text" placeholder="Longitude" name="lng[l2]"/>
+  <input id="a_id" type="hidden" value="<%= @animal.id %>">
+  <button id="a_add_sighting">Add Sighting</button>
 </div>
 
 
@@ -42,3 +46,6 @@
     <% end %>
   </tbody>
 </table>
+
+<div id="calendar">
+</div>
