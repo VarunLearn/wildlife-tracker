@@ -7,7 +7,7 @@ class AnimalsController < ApplicationController
       #@sightings = Sighting.all
       events = []
       @sightings.each do |sighting|
-        events << { id: sighting.id, title: sighting.latitude, start: sighting.date, url: Rails.application.routes.url_helpers.sighting_path(sighting.id)}
+        events << { id: sighting.id, title: sighting.latitude, start: sighting.date.to_s + " " + sighting.time.hour.to_s + ":" + sighting.time.min.to_s, url: Rails.application.routes.url_helpers.sighting_path(sighting.id)}
       end
       render :json => events.to_json
     end

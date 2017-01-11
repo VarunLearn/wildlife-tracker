@@ -6,6 +6,12 @@ $(document).ready(function() {
         window.open(event.url);
         return false;
       }
-    }
+    },
+
+    header:{
+      left:   'title',
+      center: 'month, basicWeek, basicDay',
+      right:  'today prev,next'
+  }
   });
 });
